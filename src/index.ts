@@ -1,1 +1,2 @@
-export { resultMutationField } from './resultMutationField'
+export { resultMutationField, ResultMutationFieldConfig } from './resultMutationField'
+export { resultQueryField, ResultQueryFieldConfig } from './resultQueryField'
