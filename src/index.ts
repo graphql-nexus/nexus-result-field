@@ -1,1 +1,1 @@
-export * from '~/lib/utils'
+export { resultMutationField } from './resultMutationField'

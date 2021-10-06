@@ -65,6 +65,7 @@
     "jest-watch-select-projects": "2.0.0",
     "jest-watch-suspend": "1.1.2",
     "jest-watch-typeahead": "1.0.0",
+    "nexus": "1.1.0",
     "prettier": "2.4.1",
     "ts-jest": "27.0.5",
     "ts-nameof": "5.0.0",
@@ -77,5 +78,8 @@
   "importSorter": {
     "emptyLinesBetweenGroups": 0,
     "wrappingStyle": "prettier"
+  },
+  "peerDependencies": {
+    "nexus": "^1.0.0"
   }
 }
