@@ -68,4 +68,4 @@ export interface ResultQueryFieldConfig<FieldName extends string = any> {
 export const resultQueryField = <FieldName extends string>(
   name: FieldName,
   config: ResultQueryFieldConfig<FieldName>
-) => resultFieldDo(name, { ...config, rootObjectType: 'Query' })
+): any[] => resultFieldDo(name, { ...config, rootObjectType: 'Query' })

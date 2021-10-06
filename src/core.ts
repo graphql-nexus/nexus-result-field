@@ -20,15 +20,15 @@ export const resultFieldDo = (
   }: (ResultMutationFieldConfig | ResultQueryFieldConfig) & {
     rootObjectType: 'Mutation' | 'Query'
   }
-) => {
+): any[] => {
   const typeNamePrefix_ = typeNamePrefix ?? upperFirst(name)
   const typeNameResult = `${typeNamePrefix_}Result`
   const typeNameErrorAggregate = `${typeNamePrefix_}Errors`
   const typeNameError = `${typeNamePrefix_}Error`
-  const successTypeName = typeof successType === 'string' ? successType : successType.name
+  const successTypeName = (typeof successType === 'string' ? successType : successType.name) as string
   const errorTypeNameReferences = errorTypes.map((error) => {
     // Get the name from any _definitions_ given
-    return typeof error === 'string' ? error : error.name
+    return (typeof error === 'string' ? error : error.name) as string
   })
   const inputReference = typeof input === 'string' ? input : `${typeNamePrefix_}Input`
   const conventionArgs = input
@@ -55,7 +55,7 @@ export const resultFieldDo = (
         const aggregateErrorOrInlineErrors = aggregateErrors
           ? [typeNameErrorAggregate]
           : errorTypeNameReferences
-        t.members(successTypeName as any, ...(aggregateErrorOrInlineErrors as any))
+        t.members(successTypeName, ...(aggregateErrorOrInlineErrors as any))
       },
     }),
   ]

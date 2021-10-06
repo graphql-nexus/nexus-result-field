@@ -68,4 +68,4 @@ export interface ResultMutationFieldConfig<FieldName extends string = any> {
 export const resultMutationField = <FieldName extends string>(
   name: FieldName,
   config: ResultMutationFieldConfig<FieldName>
-) => resultFieldDo(name, { ...config, rootObjectType: 'Mutation' })
+): any[] => resultFieldDo(name, { ...config, rootObjectType: 'Mutation' })
