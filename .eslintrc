@@ -14,6 +14,10 @@
   ],
   "overrides": [],
   "rules": {
+    // TODO(3) see about reducing usage in codebase
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
     // TypeScript makes these safe & effective
     "no-case-declarations": "off",
     // This rule marks nameof as a warning which is annoying if
