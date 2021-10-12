@@ -55,6 +55,7 @@ export const resultFieldDo = (
         const aggregateErrorOrInlineErrors = aggregateErrors
           ? [typeNameErrorAggregate]
           : errorTypeNameReferences
+        // eslint-disable-next-line
         t.members(successTypeName, ...(aggregateErrorOrInlineErrors as any))
       },
     }),
@@ -63,6 +64,7 @@ export const resultFieldDo = (
   // Add error type object-references if any
   // For convenience in case the user is using writing Nexus type defs inline
 
+  // eslint-disable-next-line
   types.push(...(errorTypes.filter((error) => typeof error !== 'string') as any))
 
   // Add result type object-reference if being used
