@@ -59,10 +59,10 @@ export interface ResultMutationFieldConfig<FieldName extends string = any> {
 
 /**
  * Create a mutation field with a result-style return type that captures the set of possible errors that can
- * happpen for this mutation.
+ * happen for this mutation.
  *
- * @param -  The name of this mutation field.
- * @param -  Configuration For this mutation field.
+ * @param name    The name of this mutation field.
+ * @param config  Configuration For this mutation field.
  * @returns A list of Nexus type definitions ready to be handed over to `makeSchema`.
  */
 export const resultMutationField = <FieldName extends string>(
