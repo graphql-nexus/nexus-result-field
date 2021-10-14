@@ -4849,7 +4849,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"markdown-toc@npm:^1.2.0":
+"markdown-toc@npm:1.2.0":
   version: 1.2.0
   resolution: "markdown-toc@npm:1.2.0"
   dependencies:
@@ -5095,7 +5095,7 @@ fsevents@^2.3.2:
     jest-watch-select-projects: 2.0.0
     jest-watch-suspend: 1.1.2
     jest-watch-typeahead: 1.0.0
-    markdown-toc: ^1.2.0
+    markdown-toc: 1.2.0
     nexus: 1.1.0
     prettier: 2.4.1
     ts-jest: 27.0.5
