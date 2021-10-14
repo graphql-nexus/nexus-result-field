@@ -26,8 +26,11 @@ Peer dependencies: `nexus`, `graphql`
 
 ## Features
 
-- API mimicks `mutationField`/`queryField` making it easy to pickup.
-- Type safe implementation of GraphQL Result fields schema pattern (read more below)
+- Implementation of [GraphQL result fields schema patterns](https://productionreadygraphql.com/2020-08-01-guide-to-graphql-errors)
+- Type safety powered by [Nexus](https://nexusjs.org)
+- API mimicks Nexus' core [`mutationField`](https://paka.dev/npm/nexus/v/1.1.0#module-index-export-mutationField)/[`queryField`](https://paka.dev/npm/nexus/v/1.1.0#module-index-export-queryField) API making this easy to pickup.
+- Accept plain args or input objects.
+- Return single or multi errors.
 
 ## Introduction
 
