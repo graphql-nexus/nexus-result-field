@@ -130,6 +130,9 @@ type Mutation {
 ### Input as Plain Args
 
 ```ts
+import { makeSchema } from 'nexus'
+import { printSchema } from 'grpahql'
+
 printSchema(
   makeSchema({
     types: [
@@ -191,6 +194,9 @@ type Mutation {
 ### Result as Aggregate Error
 
 ```ts
+import { makeSchema } from 'nexus'
+import { printSchema } from 'grpahql'
+
 printSchema(
   makeSchema({
     types: [
