@@ -57,8 +57,9 @@ The following guide works with `resultMutationField` but not there is `resultQue
 ### Input as Object
 
 ```ts
-import { makeSchema } from 'nexus'
+import { makeSchema, objectType } from 'nexus'
 import { printSchema } from 'grpahql'
+import { resultMutationField } from 'nexus-result-field'
 
 printSchema(
   makeSchema({
@@ -130,8 +131,9 @@ type Mutation {
 ### Input as Plain Args
 
 ```ts
-import { makeSchema } from 'nexus'
+import { makeSchema, objectType } from 'nexus'
 import { printSchema } from 'grpahql'
+import { resultMutationField } from 'nexus-result-field'
 
 printSchema(
   makeSchema({
@@ -194,8 +196,9 @@ type Mutation {
 ### Result as Aggregate Error
 
 ```ts
-import { makeSchema } from 'nexus'
+import { makeSchema, objectType } from 'nexus'
 import { printSchema } from 'grpahql'
+import { resultMutationField } from 'nexus-result-field'
 
 printSchema(
   makeSchema({
@@ -272,8 +275,9 @@ type Mutation {
 ### Result as Single Error
 
 ```ts
-import { makeSchema } from 'nexus'
+import { makeSchema, objectType } from 'nexus'
 import { printSchema } from 'grpahql'
+import { resultMutationField } from 'nexus-result-field'
 
 printSchema(
   makeSchema({
