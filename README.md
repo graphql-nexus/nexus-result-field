@@ -133,12 +133,13 @@ type Mutation {
 printSchema(
   makeSchema({
     types: [
-      resultMutationField('createFoo', {
-        successType: `Foo`,
+      resultMutationField({
+        name: 'createFoo',
         args: {
           handle: nonNull('String'),
         },
         errorTypes: ['HandleAlreadyTaken'],
+        successType: `Foo`,
         resolve(_, args) {
           // ...
         },
@@ -193,13 +194,14 @@ type Mutation {
 printSchema(
   makeSchema({
     types: [
-      resultMutationField('createFoo', {
-        successType: `Foo`,
+      resultMutationField({
+        name: 'createFoo',
         input(t) {
           t.nonNull.string('handle')
         },
-        aggregateErrors: true,
+        aggregateErrors: true, // <-- this
         errorTypes: ['HandleAlreadyTaken'],
+        successType: `Foo`,
         resolve(_, args) {
           // ...
         },
