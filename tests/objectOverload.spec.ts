@@ -1,6 +1,6 @@
 import { printSchema } from 'graphql'
 import { makeSchema, nonNull } from 'nexus'
-import { resultMutationField } from '~/resultMutationField'
+import { resultMutationField } from '~resultMutationField'
 import { resultQueryField } from '~resultQueryField'
 import { BusinessErrorHandleAlreadyTaken, BusinessErrorResourceNotFound, FooObject } from './__data__'
 
@@ -25,11 +25,13 @@ it('works', () => {
             },
           }),
 
-          resultMutationField('createFoo', {
+          resultMutationField({
+            name: 'createFoo',
             successType: `Foo`,
-            input(t: any) {
-              t.nonNull.string('handle')
+            args: {
+              handle: nonNull('String'),
             },
+
             errorTypes: [BusinessErrorHandleAlreadyTaken],
             resolve(_, args) {
               // ...
@@ -62,16 +64,12 @@ it('works', () => {
 
     union CreateFooResult = Foo | BusinessErrorHandleAlreadyTaken
 
-    input CreateFooInput {
-      handle: String!
-    }
-
     type Query {
       getFoo(id: ID!): GetFooResult
     }
 
     type Mutation {
-      createFoo(input: CreateFooInput!): CreateFooResult
+      createFoo(handle: String!): CreateFooResult
     }
     "
   `)
