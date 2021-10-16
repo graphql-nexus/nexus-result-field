@@ -26,7 +26,7 @@ export interface ResultQueryFieldConfig<FieldName extends string = string> {
    *
    * Made available on `args` under the `input` key.
    *
-   * Optional but generally use this, as a good GraphQL API has as few idiosyncracies as possible.
+   * Optional but generally use this, as a good GraphQL API has as few idiosyncrasies as possible.
    */
   input?: Nexus.core.GetGen<'allInputTypes'> | Nexus.core.NexusInputObjectTypeConfig<string>['definition']
   /**
@@ -53,7 +53,7 @@ export interface ResultQueryFieldConfig<FieldName extends string = string> {
   /**
    * The type name prefix to use. By default is the given field name capitalized (first character).
    *
-   * Generally use this sparingly as a good GraphQL API has as few idiosyncracies as possible.
+   * Generally use this sparingly as a good GraphQL API has as few idiosyncrasies as possible.
    */
   typeNamePrefix?: string
 }
