@@ -1,35 +1,38 @@
 import { printSchema } from 'graphql'
-import { makeSchema, objectType } from 'nexus'
+import { makeSchema, nonNull } from 'nexus'
 import { resultMutationField } from '~/resultMutationField'
+import { resultQueryField } from '~resultQueryField'
+import { BusinessErrorHandleAlreadyTaken, BusinessErrorResourceNotFound, FooObject } from './__data__'
 
 it('works', () => {
   expect(
     printSchema(
       makeSchema({
         types: [
-          resultMutationField('createFoo', {
-            successType: `Foo`,
-            input(t: any) {
-              t.nonNull.string('handle')
+          FooObject,
+          BusinessErrorHandleAlreadyTaken,
+          BusinessErrorResourceNotFound,
+          resultQueryField({
+            name: 'getFoo',
+            successType: 'Foo',
+            args: {
+              id: nonNull('ID'),
             },
-            errorTypes: ['HandleAlreadyTaken'],
+
+            errorTypes: [BusinessErrorResourceNotFound],
             resolve(_, args) {
               // ...
             },
           }),
 
-          objectType({
-            name: 'Foo',
-            definition(t) {
-              t.nonNull.id('id')
+          resultMutationField('createFoo', {
+            successType: `Foo`,
+            input(t: any) {
               t.nonNull.string('handle')
             },
-          }),
-
-          objectType({
-            name: 'HandleAlreadyTaken',
-            definition(t) {
-              t.nonNull.string('message')
+            errorTypes: [BusinessErrorHandleAlreadyTaken],
+            resolve(_, args) {
+              // ...
             },
           }),
         ],
@@ -42,23 +45,29 @@ it('works', () => {
       })
     )
   ).toMatchInlineSnapshot(`
-    "union CreateFooResult = Foo | HandleAlreadyTaken
+    "type Foo {
+      id: ID!
+      handle: String!
+    }
+
+    type BusinessErrorHandleAlreadyTaken {
+      message: String!
+    }
+
+    type BusinessErrorResourceNotFound {
+      message: String!
+    }
+
+    union GetFooResult = Foo | BusinessErrorResourceNotFound
+
+    union CreateFooResult = Foo | BusinessErrorHandleAlreadyTaken
 
     input CreateFooInput {
       handle: String!
     }
 
-    type Foo {
-      id: ID!
-      handle: String!
-    }
-
-    type HandleAlreadyTaken {
-      message: String!
-    }
-
     type Query {
-      ok: Boolean!
+      getFoo(id: ID!): GetFooResult
     }
 
     type Mutation {
