@@ -77,10 +77,11 @@ export function resultMutationField<FieldName extends string>(
 ): any[]
 
 /**
- * TODO.
+ * Create a mutation field with a result-style return type that captures the set of possible errors that can
+ * happen for this mutation.
  *
- * @param name
- * @param config
+ * @param config  Configuration For this mutation field.
+ * @returns A list of Nexus type definitions ready to be handed over to `makeSchema`.
  */
 export function resultMutationField<FieldName extends string>(
   config: ResultMutationFieldConfig<FieldName>

@@ -67,14 +67,21 @@ export type ResultQueryFieldConfigWithoutName<FieldName extends string = any> = 
  * Create a query field with a result-style return type that captures the set of possible errors that can
  * happen for this query.
  *
- * @param -  The name of this query field.
- * @param -  Configuration For this query field.
+ * @param name    The name of this query field.
+ * @param config  Configuration For this query field.
  * @returns A list of Nexus type definitions ready to be handed over to `makeSchema`.
  */
 export function resultQueryField<FieldName extends string>(
   name: FieldName,
   config: ResultQueryFieldConfigWithoutName<FieldName>
 ): any[]
+/**
+ * Create a query field with a result-style return type that captures the set of possible errors that can
+ * happen for this query.
+ *
+ * @param config  Configuration for this query field.
+ * @returns A list of Nexus type definitions ready to be handed over to `makeSchema`.
+ */
 export function resultQueryField<FieldName extends string>(config: ResultQueryFieldConfig<FieldName>): any[]
 export function resultQueryField<FieldName extends string>(
   ...args:
