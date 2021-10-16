@@ -6,21 +6,19 @@ import { ResultQueryFieldConfig } from '~resultQueryField'
 /**
  * Core logic for all public result-field functions.
  */
-export const resultFieldDo = (
-  name: string,
-  {
-    successType,
-    resolve,
-    input,
-    args,
-    errorTypes,
-    aggregateErrors = false,
-    typeNamePrefix,
-    rootObjectType,
-  }: (ResultMutationFieldConfig | ResultQueryFieldConfig) & {
-    rootObjectType: 'Mutation' | 'Query'
-  }
-): any[] => {
+export const resultFieldInternal = ({
+  name,
+  successType,
+  resolve,
+  input,
+  args,
+  errorTypes,
+  aggregateErrors = false,
+  typeNamePrefix,
+  rootObjectType,
+}: (ResultMutationFieldConfig | ResultQueryFieldConfig) & {
+  rootObjectType: 'Mutation' | 'Query'
+}): any[] => {
   const typeNamePrefix_ = typeNamePrefix ?? upperFirst(name)
   const typeNameResult = `${typeNamePrefix_}Result`
   const typeNameErrorAggregate = `${typeNamePrefix_}Errors`

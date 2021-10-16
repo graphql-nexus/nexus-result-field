@@ -1,7 +1,8 @@
 import * as Nexus from 'nexus'
-import { resultFieldDo } from '~core'
+import { resultFieldInternal } from '~core'
 
-export interface ResultMutationFieldConfig<FieldName extends string = any> {
+export interface ResultMutationFieldConfig<FieldName extends string = string> {
+  name: FieldName
   /**
    * The success-case type returned by this mutation resolver. This type will be wrapped in the result type which in
    * turn becomes the actual mutation field type.
@@ -25,7 +26,7 @@ export interface ResultMutationFieldConfig<FieldName extends string = any> {
    *
    * Made available on `args` under the `input` key.
    *
-   * Optional but generally use this, as a good GraphQL API has as few idiosyncracies as possible.
+   * Optional but generally use this, as a good GraphQL API has as few idiosyncrasies as possible.
    */
   input?: Nexus.core.GetGen<'allInputTypes'> | Nexus.core.NexusInputObjectTypeConfig<string>['definition']
   /**
@@ -52,10 +53,15 @@ export interface ResultMutationFieldConfig<FieldName extends string = any> {
   /**
    * The type name prefix to use. By default is the given field name capitalized (first character).
    *
-   * Generally use this sparingly as a good GraphQL API has as few idiosyncracies as possible.
+   * Generally use this sparingly as a good GraphQL API has as few idiosyncrasies as possible.
    */
   typeNamePrefix?: string
 }
+
+export type ResultMutationFieldConfigWithoutName<FieldName extends string = any> = Omit<
+  ResultMutationFieldConfig<FieldName>,
+  'name'
+>
 
 /**
  * Create a mutation field with a result-style return type that captures the set of possible errors that can
@@ -65,7 +71,27 @@ export interface ResultMutationFieldConfig<FieldName extends string = any> {
  * @param config  Configuration For this mutation field.
  * @returns A list of Nexus type definitions ready to be handed over to `makeSchema`.
  */
-export const resultMutationField = <FieldName extends string>(
+export function resultMutationField<FieldName extends string>(
   name: FieldName,
+  config: ResultMutationFieldConfigWithoutName<FieldName>
+): any[]
+
+/**
+ * TODO.
+ *
+ * @param name
+ * @param config
+ */
+export function resultMutationField<FieldName extends string>(
   config: ResultMutationFieldConfig<FieldName>
-): any[] => resultFieldDo(name, { ...config, rootObjectType: 'Mutation' })
+): any[]
+
+export function resultMutationField<FieldName extends string>(
+  ...args:
+    | [name: FieldName, config: ResultMutationFieldConfigWithoutName<FieldName>]
+    | [config: ResultMutationFieldConfig<FieldName>]
+): any[] {
+  return args.length === 1
+    ? resultFieldInternal({ ...args[0], rootObjectType: 'Mutation' })
+    : resultFieldInternal({ ...args[1], rootObjectType: 'Mutation', name: args[0] })
+}
