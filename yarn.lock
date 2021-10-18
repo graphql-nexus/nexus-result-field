@@ -484,14 +484,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@homer0/prettier-plugin-jsdoc@npm:4.0.5":
-  version: 4.0.5
-  resolution: "@homer0/prettier-plugin-jsdoc@npm:4.0.5"
+"@homer0/prettier-plugin-jsdoc@npm:4.0.6":
+  version: 4.0.6
+  resolution: "@homer0/prettier-plugin-jsdoc@npm:4.0.6"
   dependencies:
-    comment-parser: ^1.2.3
-    prettier: ^2.3.2
+    comment-parser: ^1.2.4
+    prettier: ^2.4.1
     ramda: 0.27.1
-  checksum: 3da2990c638bcb019e2f4c6ff449b062104a603f4620f4de06385d9f4bd57e0b165642e05b8c91dd658f13b1983d51ad149132b991434c5cbebff24d5035a7d9
+  checksum: 52258d51a8bde6d7f1457f41e9a936beb3a1d64e4f1e3149bd19b41e910c4bb604cc4f59db896aadad5c4052bc83b459d899f59e5b1220538dc1d12b8da51a67
   languageName: node
   linkType: hard
 
@@ -2153,7 +2153,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"comment-parser@npm:^1.2.3":
+"comment-parser@npm:^1.2.4":
   version: 1.2.4
   resolution: "comment-parser@npm:1.2.4"
   checksum: 36ac280bce4c472fac22b3ec4d8aebb4d3d7c22c6808c70174f4deabee3b82144db66f8bd61eca9c514a6d0f12f6087ddab99e7d531e660d0da793b4730fd445
@@ -5085,7 +5085,7 @@ fsevents@^2.3.2:
   version: 0.0.0-use.local
   resolution: "nexus-result-field@workspace:."
   dependencies:
-    "@homer0/prettier-plugin-jsdoc": 4.0.5
+    "@homer0/prettier-plugin-jsdoc": 4.0.6
     "@prisma-labs/prettier-config": 0.1.0
     "@types/jest": 27.0.2
     "@types/node": 16.10.9
@@ -5476,7 +5476,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.4.1, prettier@npm:^2.2.1, prettier@npm:^2.3.2":
+"prettier@npm:2.4.1, prettier@npm:^2.2.1, prettier@npm:^2.4.1":
   version: 2.4.1
   resolution: "prettier@npm:2.4.1"
   bin:
