@@ -1,7 +1,7 @@
 {
   "name": "nexus-result-field",
   "version": "0.0.0-dripip",
-  "repository": "git@github.com:jasonkuhrt/nexus-result-field.git",
+  "repository": "git@github.com:graphql-nexus/nexus-result-field.git",
   "author": "Jason Kuhrt",
   "license": "MIT",
   "files": [
