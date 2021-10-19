@@ -61,7 +61,7 @@ The following guide works with `resultMutationField` but not there is `resultQue
 
 ```ts
 import { makeSchema, objectType } from 'nexus'
-import { printSchema } from 'grpahql'
+import { printSchema } from 'graphql'
 import { resultMutationField } from 'nexus-result-field'
 
 printSchema(
